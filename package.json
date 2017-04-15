@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "mongoose": "4.8.1",
+    "mongoose-patch-history": "^1.1.6",
+    "mongoose-version2": "^0.0.4",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-node6": "^11.0.0"
+  }
+}
