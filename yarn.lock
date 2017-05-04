@@ -57,6 +57,10 @@ arrify@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/arrify/-/arrify-1.0.1.tgz#898508da2226f380df904728456849c1501a4b0d"
 
+asap@^2.0.0:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/asap/-/asap-2.0.5.tgz#522765b50c3510490e52d7dcfe085ef9ba96958f"
+
 asn1@~0.2.3:
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/asn1/-/asn1-0.2.3.tgz#dac8787713c9966849fc8180777ebe9c1ddf3b86"
@@ -73,7 +77,7 @@ async-each@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/async-each/-/async-each-1.0.1.tgz#19d386a1d9edc6e7c1c85d388aedbcc56d33602d"
 
-async@2.1.4:
+async@2.1.4, async@^2.1.4:
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/async/-/async-2.1.4.tgz#2d2160c7788032e4dd6cbe2502f1f9a2c8f6cde4"
   dependencies:
@@ -328,6 +332,10 @@ chalk@^1.1.0:
     strip-ansi "^3.0.0"
     supports-color "^2.0.0"
 
+check-types@^7.0.0:
+  version "7.1.5"
+  resolved "https://registry.yarnpkg.com/check-types/-/check-types-7.1.5.tgz#a1d6b9d2fa3e7e80e3a2d373ffcc2cf10b7370c9"
+
 chokidar@^1.6.1:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-1.6.1.tgz#2f4447ab5e96e50fb3d789fd90d4c72e0e4c70c2"
@@ -419,6 +427,13 @@ detect-indent@^4.0.0:
   dependencies:
     repeating "^2.0.0"
 
+dezalgo@^1.0.1:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/dezalgo/-/dezalgo-1.0.3.tgz#7f742de066fc748bc8db820569dddce49bf0d456"
+  dependencies:
+    asap "^2.0.0"
+    wrappy "1"
+
 ecc-jsbn@~0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/ecc-jsbn/-/ecc-jsbn-0.1.1.tgz#0fc73a9ed5f0d53c38193398523ef7e543777505"
@@ -480,6 +495,10 @@ fill-range@^2.1.0:
     randomatic "^1.1.3"
     repeat-element "^1.1.2"
     repeat-string "^1.5.2"
+
+flushwritable@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/flushwritable/-/flushwritable-1.0.0.tgz#3e328d8fde412ad47e738e3be750b4d290043498"
 
 for-in@^1.0.1:
   version "1.0.2"
@@ -567,6 +586,16 @@ glob-parent@^2.0.0:
   dependencies:
     is-glob "^2.0.0"
 
+glob@^6.0.1:
+  version "6.0.4"
+  resolved "https://registry.yarnpkg.com/glob/-/glob-6.0.4.tgz#0f08860f6a155127b2fadd4f9ce24b1aab6e4d22"
+  dependencies:
+    inflight "^1.0.4"
+    inherits "2"
+    minimatch "2 || 3"
+    once "^1.3.0"
+    path-is-absolute "^1.0.0"
+
 glob@^7.0.0, glob@^7.0.5:
   version "7.1.1"
   resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.1.tgz#805211df04faaf1c63a3600306cdf5ade50b2ec8"
@@ -589,6 +618,12 @@ graceful-fs@^4.1.2, graceful-fs@^4.1.4:
 "graceful-readlink@>= 1.0.0":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/graceful-readlink/-/graceful-readlink-1.0.1.tgz#4cafad76bc62f02fa039b2f94e9a3dd3a391a725"
+
+gridfs-stream@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/gridfs-stream/-/gridfs-stream-1.1.1.tgz#3dd3a100ec2021a181282f6eb46709636074df89"
+  dependencies:
+    flushwritable "^1.0.0"
 
 har-schema@^1.0.5:
   version "1.0.5"
@@ -805,7 +840,7 @@ kind-of@^3.0.2:
   dependencies:
     is-buffer "^1.0.2"
 
-lodash@^4.14.0, lodash@^4.17.4, lodash@^4.2.0:
+lodash@^4.11.1, lodash@^4.14.0, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.6.1:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
@@ -843,7 +878,7 @@ mime-types@^2.1.12, mime-types@~2.1.7:
   dependencies:
     mime-db "~1.27.0"
 
-minimatch@^3.0.0, minimatch@^3.0.2:
+"minimatch@2 || 3", minimatch@^3.0.0, minimatch@^3.0.2:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-3.0.3.tgz#2a4e4090b96b2db06a9d7df01055a62a77c9b774"
   dependencies:
@@ -857,11 +892,17 @@ minimist@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.0.tgz#a35008b20f41383eec1fb914f4cd5df79a264284"
 
-"mkdirp@>=0.5 0", mkdirp@^0.5.1:
+"mkdirp@>=0.5 0", mkdirp@^0.5, mkdirp@^0.5.1, mkdirp@~0.5.1:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.5.1.tgz#30057438eac6cf7f8c4767f38648d6697d75c903"
   dependencies:
     minimist "0.0.8"
+
+mmmagic@^0.4.4:
+  version "0.4.5"
+  resolved "https://registry.yarnpkg.com/mmmagic/-/mmmagic-0.4.5.tgz#883468e4423a75937674350018c4062d215eb2e2"
+  dependencies:
+    nan "^2.4.0"
 
 mongodb-core@2.1.7:
   version "2.1.7"
@@ -878,6 +919,31 @@ mongodb@2.2.22:
     mongodb-core "2.1.7"
     readable-stream "2.1.5"
 
+mongoose-crate-localfs@^1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/mongoose-crate-localfs/-/mongoose-crate-localfs-1.1.4.tgz#adc3a5890a45f7264fbbc7055171cad7b86ce7e1"
+  dependencies:
+    async "^2.1.4"
+    check-types "^7.0.0"
+    mkdirp "^0.5"
+    mv "^2.1.1"
+
+mongoose-crate@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/mongoose-crate/-/mongoose-crate-1.1.0.tgz#bf234ecf4ef30ccb79b9d67f660a6085e6d7291c"
+  dependencies:
+    async "^2.1.4"
+    check-types "^7.0.0"
+    mmmagic "^0.4.4"
+
+mongoose-gridfs@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/mongoose-gridfs/-/mongoose-gridfs-0.1.0.tgz#2e2c31019faf9a7755c073a7808f5570f79c2491"
+  dependencies:
+    gridfs-stream "^1.1.1"
+    lodash "^4.11.1"
+    stream-read "^1.1.2"
+
 mongoose-patch-history@^1.1.6:
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/mongoose-patch-history/-/mongoose-patch-history-1.1.6.tgz#d4c163d1a24b0cfb37b82e9c5e0b409226207336"
@@ -886,6 +952,12 @@ mongoose-patch-history@^1.1.6:
     humps "^2.0.0"
     lodash "^4.17.4"
     mongoose "^4.8.1"
+
+mongoose-sequence@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/mongoose-sequence/-/mongoose-sequence-3.2.0.tgz#389dbf1639e557e7dae67b1cf119c84f329113a8"
+  dependencies:
+    lodash "^4.6.1"
 
 mongoose-version2@^0.0.4:
   version "0.0.4"
@@ -937,9 +1009,21 @@ muri@1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/muri/-/muri-1.2.0.tgz#b86383c902920b09ebe62af0e75c94de5f33cd3d"
 
-nan@^2.3.0:
+mv@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/mv/-/mv-2.1.1.tgz#ae6ce0d6f6d5e0a4f7d893798d03c1ea9559b6a2"
+  dependencies:
+    mkdirp "~0.5.1"
+    ncp "~2.0.0"
+    rimraf "~2.4.0"
+
+nan@^2.3.0, nan@^2.4.0:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.6.2.tgz#e4ff34e6c95fdfb5aecc08de6596f43605a7db45"
+
+ncp@~2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/ncp/-/ncp-2.0.0.tgz#195a21d6c46e361d2fb1281ba38b91e9df7bdbb3"
 
 node-pre-gyp@^0.6.29:
   version "0.6.34"
@@ -1176,6 +1260,12 @@ rimraf@2, rimraf@^2.5.1, rimraf@^2.6.1:
   dependencies:
     glob "^7.0.5"
 
+rimraf@~2.4.0:
+  version "2.4.5"
+  resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.4.5.tgz#ee710ce5d93a8fdb856fb5ea8ff0e2d75934b2da"
+  dependencies:
+    glob "^6.0.1"
+
 safe-buffer@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.0.1.tgz#d263ca54696cd8a306b5ca6551e92de57918fbe7"
@@ -1238,6 +1328,12 @@ sshpk@^1.7.0:
     jodid25519 "^1.0.0"
     jsbn "~0.1.0"
     tweetnacl "~0.14.0"
+
+stream-read@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/stream-read/-/stream-read-1.1.2.tgz#3137110d7aa80ba54e4b829c4cd33ca106b9564d"
+  dependencies:
+    dezalgo "^1.0.1"
 
 string-width@^1.0.1:
   version "1.0.2"

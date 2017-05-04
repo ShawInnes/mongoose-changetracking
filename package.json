@@ -1,7 +1,11 @@
 {
   "dependencies": {
     "mongoose": "4.8.1",
+    "mongoose-crate": "^1.1.0",
+    "mongoose-crate-localfs": "^1.1.4",
+    "mongoose-gridfs": "^0.1.0",
     "mongoose-patch-history": "^1.1.6",
+    "mongoose-sequence": "^3.2.0",
     "mongoose-version2": "^0.0.4",
     "underscore": "^1.8.3"
   },
