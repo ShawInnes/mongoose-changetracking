@@ -47,7 +47,7 @@ Page.findOne({ path: /^\/page-one/ }, function (err, result) {
 });
 
 var PageVersions = Page.VersionModel;
-//console.log(prevVersions);
+
 PageVersions.find({  }, function (err, results) {
   _.each(results, function (item) {
     console.log(item.doc._id, item.doc._v, item.doc.tags);
