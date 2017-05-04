@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var version = require('mongoose-version2');
-var _ = require('underscore');
+var _ = require('lodash');
 
 mongoose.Promise = global.Promise;
 
