@@ -1,7 +1,10 @@
-var mongoose = require('mongoose');
+import mongoose from 'mongoose';
+import MongooseVersion from 'mongoose-version2';
+import MongooseSequence from 'mongoose-sequence';
+
 var Schema = mongoose.Schema;
-var version = require('mongoose-version2');
 var _ = require('lodash');
+var moment = require('moment');
 
 mongoose.Promise = global.Promise;
 
@@ -12,44 +15,88 @@ db.once('open', function() {
 });
 mongoose.connect('mongodb://localhost/mongoose-version');
 
-
 var PageSchema = new Schema({
-  title : { type : String, required : true},
-  content : { type : String, required : true },
-  path : { type : String, required : true},
-  tags : [String],
-
-  lastModified : Date,
-  created : Date
+  title: { type: String, required: true },
+  content: { type: String, required: true },
+  path: { type: String, required: true, unique: true },
+  user: { type: String, required: true },
+  tags: [String]
 });
 
-PageSchema.plugin(version);
+PageSchema.plugin(MongooseVersion);
+PageSchema.plugin(MongooseSequence, { id: 'comment_seq', inc_field: 'commentNumber', reference_fields: ['user'] });
 
 var Page = mongoose.model('Page', PageSchema);
 
-/*
 var p1 = new Page({
   title: 'Page one',
-  content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-  path: '/page-one'
-}).save();
-*/
+  content: 'Lorem ipsum dolor sit amet',
+  user: 'user1',
+  path: '/page-one',
+}).save().then((doc) => {
+  console.log('created ' + doc._id);
+}).catch((err) => {
+  console.log('error ' + err.errmsg);
+});
+
+var p2 = new Page({
+  title: 'Page two',
+  content: 'Lorem ipsum dolor sit amet',
+  user: 'user1',
+  path: '/page-two',
+}).save().then((doc) => {
+  console.log('created ' + doc._id);
+}).catch((err) => {
+  console.log('error ' + err.errmsg);
+});
+
+var p3 = new Page({
+  title: 'Page three',
+  content: 'Lorem ipsum dolor sit amet',
+  user: 'user2',
+  path: '/page-three',
+}).save().then((doc) => {
+  console.log('created ' + doc._id);
+}).catch((err) => {
+  console.log('error ' + err.errmsg);
+});
 
 Page.findOne({ path: /^\/page-one/ }, function (err, result) {
-  console.log('result.modified', result.isModified());
-  result.tags = ['tag1', 'tag2'];
+  if (err) {
+    console.log('error retrieving document');
+    return;
+  }
+
   result.content = result.content.toUpperCase();
-  console.log('result.modified', result.isModified());
+  result.content = result.content + ' appended text';
+
   if (result.isModified()) {
     console.log('document is modified, saving');
     result.save();
+  } else {
+    console.log('it\'s okay, nothing really changed so I won\'t save');
+  }
+});
+
+Page.findOne({ path: /^\/page-two/ }, function (err, result) {
+  if (err) {
+    console.log('error retrieving document');
+    return;
+  }
+
+  result.content = result.content + ' appended text';
+  if (result.isModified()) {
+    console.log('document is modified, saving');
+    result.save();
+  } else {
+    console.log('it\'s okay, nothing really changed so I won\'t save');
   }
 });
 
 var PageVersions = Page.VersionModel;
 
 PageVersions.find({  }, function (err, results) {
-  _.each(results, function (item) {
-    console.log(item.doc._id, item.doc._v, item.doc.tags);
+  _.each(_.orderBy(results, ['doc.path', 'doc._v'], ['asc', 'asc']), function (item) {
+    console.log('document version ', item.doc.path, item.doc._id, item.doc._v, item.doc.tags);
   });
 });
